@@ -14,6 +14,7 @@ var settings_type
 var categories
 var setting_node
 var current_category
+signal settings_exit
 
 func start():
 	if settings_type == "config":
@@ -121,3 +122,6 @@ func _on_change_animation_name_button_pressed():
 	var animation_name = $TabsContainer/Label.get_text()
 	spawned_categories[current_category].set_category_name(animation_name)
 	tabBar.set_tab_title(current_category, animation_name)
+
+func _on_exit_button_pressed():
+	settings_exit.emit()

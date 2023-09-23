@@ -22,3 +22,7 @@ func open_animation_settings():
 	$Settings.settings_type = "animation"
 	$Settings.start()
 	$Settings.show()
+
+func _on_settings_settings_exit():
+	$Settings.hide()
+	$Splash.show()

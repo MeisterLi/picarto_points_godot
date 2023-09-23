@@ -11,3 +11,5 @@ script = ExtResource("1_ycnae")
 visible = false
 
 [node name="Splash" parent="." instance=ExtResource("3_8wpag")]
+
+[connection signal="settings_exit" from="Settings" to="." method="_on_settings_settings_exit"]

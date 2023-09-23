@@ -72,6 +72,11 @@ text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ExitButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "X"
+
 [node name="SaveButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 12
@@ -92,4 +97,5 @@ script = ExtResource("4_c6eaj")
 [connection signal="tab_changed" from="TabsContainer/TabBar" to="." method="_on_tab_bar_tab_changed"]
 [connection signal="pressed" from="TabsContainer/ChangeAnimationNameButton" to="." method="_on_change_animation_name_button_pressed"]
 [connection signal="pressed" from="TabsContainer/NewAnimationButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]

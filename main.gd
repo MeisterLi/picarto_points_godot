@@ -25,4 +25,5 @@ func open_animation_settings():
 
 func _on_settings_settings_exit():
 	$Settings.hide()
+	$Settings.close()
 	$Splash.show()

@@ -38,6 +38,13 @@ func start():
 		file.close()
 	add_categories()
 
+func close():
+	spawned_categories = []
+	var children = $ScrollContainer/VBoxContainer.get_children()
+	for child in children:
+		child.queue_free()
+	tabBar.clear_tabs()
+
 func add_categories():
 	for key in categories:
 		current_category = 0

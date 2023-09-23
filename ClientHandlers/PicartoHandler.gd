@@ -17,6 +17,7 @@ signal show_friend
 signal hide_friend
 signal update_scroll_text
 signal trigger_animation
+signal connected
 
 func _ready():
 	_read_config()
@@ -32,6 +33,7 @@ func _ready():
 	var singal_err = get_node("Websocket").connect("connected", send_command)
 	if singal_err != OK:
 		print(singal_err)
+	connected.emit()
 	connector.start()
 	award_timer.start(float(award_frequency))
 

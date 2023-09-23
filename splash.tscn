@@ -49,6 +49,7 @@ size_flags_horizontal = 3
 [node name="TwitchButton" type="Button" parent="HBox/ModeSelect"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
+disabled = true
 text = "Twitch"
 
 [node name="SettingsButton" type="Button" parent="HBox"]
@@ -62,5 +63,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Animation Settings"
 
+[connection signal="pressed" from="HBox/ModeSelect/PicartoButton" to="." method="_on_picarto_button_pressed"]
 [connection signal="pressed" from="HBox/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="HBox/AnimationSettingsButton" to="." method="_on_animation_settings_button_pressed"]

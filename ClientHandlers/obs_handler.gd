@@ -13,6 +13,7 @@ var ticker_display_time
 var ticker_scene
 var ticker_wait_time
 var ticker_id
+signal connected
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -62,6 +63,7 @@ func _process(delta):
 func setup():
 	ticker_id = await get_scene_item_id(ticker_scene, "Ticker")
 	$text_loop_wait.start(ticker_wait_time)
+	connected.emit()
 	
 func send_animations(animation_name, spawner_name):
 	spawn_animation(animation_name, spawner_name)

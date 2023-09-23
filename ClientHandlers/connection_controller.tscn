@@ -11,7 +11,17 @@ script = ExtResource("1_a47ym")
 
 [node name="obs_handler" parent="." instance=ExtResource("3_eb7pd")]
 
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+
+[connection signal="connected" from="PicartoHandler" to="." method="_on_picarto_handler_connected"]
 [connection signal="hide_friend" from="PicartoHandler" to="." method="_on_picarto_handler_hide_friend"]
 [connection signal="show_friend" from="PicartoHandler" to="." method="_on_picarto_handler_show_friend"]
 [connection signal="trigger_animation" from="PicartoHandler" to="." method="_on_picarto_handler_trigger_animation"]
 [connection signal="update_scroll_text" from="PicartoHandler" to="." method="_on_picarto_handler_update_scroll_text"]
+[connection signal="connected" from="obs_handler" to="." method="_on_obs_handler_connected"]

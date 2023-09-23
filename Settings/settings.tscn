@@ -33,9 +33,13 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.14
 text = "New Animation"
 
-[node name="Button" type="Button" parent="TabsContainer"]
+[node name="ChangeAnimationNameButton" type="Button" parent="TabsContainer"]
 layout_mode = 2
-text = "+"
+text = "change name"
+
+[node name="NewAnimationButton" type="Button" parent="TabsContainer"]
+layout_mode = 2
+text = "new"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
@@ -86,5 +90,6 @@ script = ExtResource("3_05v2j")
 script = ExtResource("4_c6eaj")
 
 [connection signal="tab_changed" from="TabsContainer/TabBar" to="." method="_on_tab_bar_tab_changed"]
-[connection signal="pressed" from="TabsContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TabsContainer/ChangeAnimationNameButton" to="." method="_on_change_animation_name_button_pressed"]
+[connection signal="pressed" from="TabsContainer/NewAnimationButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]

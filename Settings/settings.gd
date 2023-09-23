@@ -2,7 +2,7 @@ extends Control
 
 @export var settings_category: PackedScene
 @onready var box = $ScrollContainer/VBoxContainer
-@onready var tabBar = $TabsContainer/TabBar
+@onready var tabBar : TabBar = $TabsContainer/TabBar
 @onready var settingsData = $SettingsData
 @onready var animationData = $AnimationsData
 @onready var title = $HBoxContainer/Label
@@ -13,18 +13,21 @@ var animations
 var settings_type
 var categories
 var setting_node
+var current_category
 
 func start():
 	if settings_type == "config":
 		title.set_text("Settings")
-		$TabsContainer/Button.hide()
+		$TabsContainer/NewAnimationButton.hide()
+		$TabsContainer/ChangeAnimationNameButton.hide()
 		$TabsContainer/Label.hide()
 		config.load(settingsData.config_file)
 		categories = settingsData.categories
 		setting_node = settingsData
 	elif settings_type == "animation":
 		title.set_text("Animations")
-		$TabsContainer/Button.show()
+		$TabsContainer/NewAnimationButton.show()
+		$TabsContainer/ChangeAnimationNameButton.show()
 		$TabsContainer/Label.show()
 		categories = animationData.categories
 		var file = FileAccess.open(settingsData.config_file, FileAccess.READ)
@@ -36,6 +39,7 @@ func start():
 
 func add_categories():
 	for key in categories:
+		current_category = 0
 		var entry = settings_category.instantiate()
 		box.add_child(entry)
 		if settings_type == "animation":
@@ -79,6 +83,7 @@ func change_to_tab_contents(tab):
 			category.hide()
 		else:
 			category.show()
+			current_category = tab
 
 func _on_settings_data_loaded():
 	config = $SettingsData.config
@@ -111,3 +116,8 @@ func _on_button_pressed():
 	entry.add_settings(animation, true)
 	spawned_categories.append(entry)
 	categories.append(animation)
+
+func _on_change_animation_name_button_pressed():
+	var animation_name = $TabsContainer/Label.get_text()
+	spawned_categories[current_category].set_category_name(animation_name)
+	tabBar.set_tab_title(current_category, animation_name)

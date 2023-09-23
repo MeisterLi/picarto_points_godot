@@ -7,14 +7,33 @@ var categories = []
 var array_type = ["file"]
 var bool_type = ["random_position", "random_rotation", "fade", "static"]
 var vector2_type = ["coordinates", "scale", "random_scale"]
+var animation = {"sample_animation" : {
+		"file" : [],
+		"coordinates" : [0, 0],
+		"scale" : [1.0, 1.0],
+		"trigger" : "!" + "sample_animation",
+		"price" : 20,
+		"random_position" : false,
+		"random_rotation" : false,
+		"random_scale" : [1, 1],
+		"fade" : true,
+		"static" : true,
+		"fade_time" : 3,
+		"volume" : -12,
+		"rare_file" : "",
+		"rare_chance" : 0
+	}}
 
 func _ready():
-	var file = FileAccess.open(config_file, FileAccess.READ)
-	var contents = file.get_as_text()
-	animations = _json.parse_string(contents)
-	file.close()
-	for animation in animations:
-		categories.append({animation : animations.get(animation)})
+	if FileAccess.file_exists(config_file):
+		var file = FileAccess.open(config_file, FileAccess.READ)
+		var contents = file.get_as_text()
+		animations = _json.parse_string(contents)
+		file.close()
+		for animation in animations:
+			categories.append({animation : animations.get(animation)})
+	else:
+		categories.append(animation)
 
 func save(spawned_categories):
 	var data_to_save = {}

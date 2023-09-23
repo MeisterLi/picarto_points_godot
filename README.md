@@ -1,7 +1,7 @@
 # Picarto channel points - Godot Version!
 
 This is a special port of my Picarto Points project to Godot. This provides an interface to easily configure settings and animations and will automatically create all needed files for you.
-In Windows, those files will be created in <WindowsPartition>:\Users\<user>\AppData\Roaming\Godot\app_userdata\PicartoPoints
+In Windows, those files will be created in "WindowsPartition":\Users\"user"\AppData\Roaming\Godot\app_userdata\PicartoPoints
 
 This project aims to replicate a feature called "Channel points", as they are known on Twitch, by using the picarto chat bot and OBS APIs. It's aimed to be simple to use and configure, and extendable. Pull requests are welcome!
 
@@ -103,6 +103,7 @@ You might want to set up a website with a list of current standings, which I hav
 # Limitations
 - The chat bot can only see channel join and leave events, so it should ideally be started before the stream is started. That said, there is a small check when a user writes something in the chat, to make sure they're still being tracked as 'active'  
 - The user standings are saved with each update, such as gaining points and spending, but not continuously.
+- The Godot Version currently does not support password-based authentication with OBS because it looked a bit daunting. Will add it if someone requests it.
 
 # Requests
 Feel free to post requests for changes or make pull requests if you have a good idea on how to improve this tool

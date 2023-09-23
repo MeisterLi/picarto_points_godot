@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqgd57ysttdnf"]
+
+[ext_resource type="Script" path="res://ClientHandlers/connection_controller.gd" id="1_a47ym"]
+[ext_resource type="PackedScene" uid="uid://qqbvol4re0sa" path="res://ClientHandlers/picarto_handler.tscn" id="2_v042b"]
+[ext_resource type="PackedScene" uid="uid://q4q4o6diyebc" path="res://ClientHandlers/obs_handler.tscn" id="3_eb7pd"]
+
+[node name="connection_controller" type="Node"]
+script = ExtResource("1_a47ym")
+
+[node name="PicartoHandler" parent="." instance=ExtResource("2_v042b")]
+
+[node name="obs_handler" parent="." instance=ExtResource("3_eb7pd")]
+
+[connection signal="hide_friend" from="PicartoHandler" to="." method="_on_picarto_handler_hide_friend"]
+[connection signal="show_friend" from="PicartoHandler" to="." method="_on_picarto_handler_show_friend"]
+[connection signal="trigger_animation" from="PicartoHandler" to="." method="_on_picarto_handler_trigger_animation"]
+[connection signal="update_scroll_text" from="PicartoHandler" to="." method="_on_picarto_handler_update_scroll_text"]

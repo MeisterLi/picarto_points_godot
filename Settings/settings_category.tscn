@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://10lld2f4r3aw"]
+
+[ext_resource type="Script" path="res://Settings/settings_category.gd" id="1_404r6"]
+[ext_resource type="PackedScene" uid="uid://dctb626ep1638" path="res://Settings/setting_entry.tscn" id="2_siejf"]
+
+[node name="SettingsCategory" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_404r6")
+settings_entry = ExtResource("2_siejf")
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

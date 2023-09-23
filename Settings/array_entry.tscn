@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6o28s0vkvr1o"]
+
+[ext_resource type="Script" path="res://Settings/array_entry.gd" id="1_vxfnm"]
+
+[node name="ArrayEntry" type="BoxContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_vxfnm")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AddEntryButton" type="Button" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "+"
+
+[node name="RemoveEntryButton" type="Button" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "-"
+
+[connection signal="pressed" from="AddEntryButton" to="." method="_on_add_entry_button_pressed"]
+[connection signal="pressed" from="RemoveEntryButton" to="." method="_on_remove_entry_button_pressed"]

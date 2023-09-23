@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://q4q4o6diyebc"]
+
+[ext_resource type="Script" path="res://ClientHandlers/obs_handler.gd" id="1_efjg0"]
+[ext_resource type="PackedScene" uid="uid://b2hs3mjxrxrxk" path="res://ClientHandlers/websocket.tscn" id="2_hquqr"]
+
+[node name="obs_handler" type="Node"]
+script = ExtResource("1_efjg0")
+websocket = ExtResource("2_hquqr")
+
+[node name="text_loop_wait" type="Timer" parent="."]
+
+[node name="text_loop_display" type="Timer" parent="."]
+
+[connection signal="timeout" from="text_loop_wait" to="." method="_on_text_loop_wait_timeout"]
+[connection signal="timeout" from="text_loop_display" to="." method="_on_text_loop_display_timeout"]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://qqbvol4re0sa"]
+
+[ext_resource type="Script" path="res://ClientHandlers/PicartoHandler.gd" id="1_nb8ib"]
+[ext_resource type="PackedScene" uid="uid://b2hs3mjxrxrxk" path="res://ClientHandlers/websocket.tscn" id="2_47m8q"]
+
+[node name="PicartoHandler" type="Node"]
+script = ExtResource("1_nb8ib")
+websocket = ExtResource("2_47m8q")
+
+[node name="award_timer" type="Timer" parent="."]
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="timeout" from="award_timer" to="." method="_on_award_timer_timeout"]

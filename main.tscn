@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuc4nk7s2ohg4"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ycnae"]
+[ext_resource type="PackedScene" uid="uid://cixl7aj4v60iv" path="res://Settings/settings.tscn" id="2_h3qu6"]
+[ext_resource type="PackedScene" uid="uid://b077q622auuu7" path="res://splash.tscn" id="3_8wpag"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_ycnae")
+
+[node name="Settings" parent="." instance=ExtResource("2_h3qu6")]
+visible = false
+
+[node name="Splash" parent="." instance=ExtResource("3_8wpag")]

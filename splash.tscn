@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://b077q622auuu7"]
+
+[ext_resource type="Script" path="res://splash.gd" id="1_ftegi"]
+
+[node name="Splash" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ftegi")
+
+[node name="HBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="HBox"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.14
+text = "Point Triggerer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="HBox"]
+layout_mode = 2
+text = "Configuration empty! Click below to open Settings."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ModeSelect" type="HBoxContainer" parent="HBox"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="PicartoButton" type="Button" parent="HBox/ModeSelect"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Picarto"
+
+[node name="BoxContainer" type="BoxContainer" parent="HBox/ModeSelect"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TwitchButton" type="Button" parent="HBox/ModeSelect"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Twitch"
+
+[node name="SettingsButton" type="Button" parent="HBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+
+[node name="AnimationSettingsButton" type="Button" parent="HBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Animation Settings"
+
+[connection signal="pressed" from="HBox/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="HBox/AnimationSettingsButton" to="." method="_on_animation_settings_button_pressed"]

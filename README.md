@@ -1,7 +1,7 @@
 # Picarto channel points - Godot Version!
 
 This is a special port of my Picarto Points project to Godot. This provides an interface to easily configure settings and animations and will automatically create all needed files for you.
-In Windows, those files will be created in "WindowsPartition":\Users\"user"\AppData\Roaming\Godot\app_userdata\PicartoPoints
+In Windows, those files will be created in "WindowsPartition":\Users/\"user"\AppData\Roaming\Godot\app_userdata\PicartoPoints
 
 This project aims to replicate a feature called "Channel points", as they are known on Twitch, by using the picarto chat bot and OBS APIs. It's aimed to be simple to use and configure, and extendable. Pull requests are welcome!
 

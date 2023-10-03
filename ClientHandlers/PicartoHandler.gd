@@ -141,7 +141,10 @@ func check_for_channel_owner(chat_message, message_author):
 
 func check_for_points(chat_message, message_author):
 	if "!points" in chat_message:
-		send_whisper("You currently have {list} points!".format({"list" : user_list[message_author]}), message_author)
+		if message_author not in user_list:
+			send_whisper("You currently have 0 points!", message_author)
+		else:
+			send_whisper("You currently have {list} points!".format({"list" : user_list[message_author]}), message_author)
 		
 func send_whisper(message, user):
 	var message_data = {"type": "whisper", "displayName": user, "message": message}
